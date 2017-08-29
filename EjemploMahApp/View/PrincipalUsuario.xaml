@@ -1,0 +1,43 @@
+﻿<Controls:MetroWindow x:Class="EjemploMahApp.View.PrincipalUsuario"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:local="clr-namespace:EjemploMahApp"
+                      xmlns:controller="clr-namespace:EjemploMahApp.Controller"
+                      Title="Usuarios"
+                      Height="450"
+                      Width="700" Background="#FF2C2C2C">
+    <Controls:MetroWindow.DataContext>
+        <controller:UsuarioController/>
+    </Controls:MetroWindow.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="445*"/>
+            <ColumnDefinition Width="247*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="399*"/>
+        </Grid.RowDefinitions>
+        <GridSplitter  Grid.Column="1" HorizontalAlignment="Left" Width="10"  Margin="0" TextBlock.TextAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Background="#FFE0E0E0"/>
+        <Menu Background="#FF444444" Grid.ColumnSpan="2" >
+            <MenuItem BorderBrush="White" FontWeight="UltraLight" FontSize="10" VerticalAlignment="Center"  Header="Menu" Background="#FF444444" Foreground="White" Height="20" Width="45">
+                <MenuItem Background="#FF444444" Header="Cerrar Sesion" />
+            </MenuItem>
+        </Menu>
+        <DataGrid IsEnabled="True" ItemsSource="{Binding Instancia.Usuarios}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Grid.Row="1" Margin="10" Background="#FF1F1F1F">
+        </DataGrid>
+        <StackPanel Grid.Column="1" Grid.Row="1" >
+            <TextBlock Text="Nombre" Foreground="White" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="15" Margin="5"/>
+            <TextBox Margin="5" Text="{Binding Instancia.Usuario.nombreUsuario}"  Foreground="White" FontWeight="Light" Background="#FF959595"/>
+            <TextBlock Text="Apellido" Foreground="White" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="15" Margin="5"/>
+            <TextBox Margin="5" Text="{Binding Instancia.Usuario.apellidoUsuario}"  Foreground="White" FontWeight="Light" Background="#FF959595"/>
+            <TextBlock Text="Usuario" Foreground="White" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="15" Margin="5"/>
+            <TextBox Margin="5" Text="{Binding Instancia.Usuario.nickUsuario}"  Foreground="White" FontWeight="Light" Background="#FF959595"/>
+            <TextBlock Text="Contrasena" Foreground="White" HorizontalAlignment="Center" FontWeight="ExtraLight" FontSize="15" Margin="5"/>
+            <TextBox Margin="5" Text="{Binding Instancia.Usuario.contrasenaUsuario}"  Foreground="White" FontWeight="Light" Background="#FF959595"/>
+
+            <Button CommandParameter="AgregarU" Command="{Binding}" Content="Agregar" Foreground="White" Margin="15" FontWeight="UltraLight" FontSize="15" Background="#FF898989" />
+        </StackPanel>
+    </Grid>
+</Controls:MetroWindow>

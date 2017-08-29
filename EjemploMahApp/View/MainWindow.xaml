@@ -1,0 +1,33 @@
+﻿<Controls:MetroWindow x:Class="EjemploMahApp.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:local="clr-namespace:EjemploMahApp"
+                      xmlns:controller="clr-namespace:EjemploMahApp.Controller"
+                      Title="Ingreso"
+                      Height="500"
+                      Width="400" Background="#FFECECEC">
+    <Controls:MetroWindow.DataContext>
+        <controller:UsuarioController/>
+    </Controls:MetroWindow.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="105*"/>
+            <RowDefinition Height="185*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock FontWeight="ExtraLight" Margin="10 25 10 0" Text="Buenos dias" TextAlignment="Center" TextWrapping="Wrap" Foreground="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" FontSize="30"  />
+            <TextBlock FontWeight="ExtraLight" VerticalAlignment="Center" Text="Ingrese su usuario y contraseña" TextAlignment="Center" TextWrapping="Wrap" Foreground="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" FontSize="23"  />
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+        <TextBlock Text="Usuario"  VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="19"  FontWeight="ExtraLight"/>
+            <TextBox Height="10"  Margin="10" VerticalAlignment="Top" Text="{Binding Instancia.Usuario.nickUsuario}"  />
+        <TextBlock Text="Contraseña"  Margin="10" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="19"  FontWeight="ExtraLight"/>
+        <PasswordBox x:Name="ContraUS" Height="10" Margin="10" VerticalAlignment="Top"  />
+        <Button CommandParameter="LogIn" FontSize="15"  Grid.Row="1" Margin=" 10" Content="Ingresar" FontWeight="Light" VerticalAlignment="Bottom" Command="{Binding Instancia}" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Foreground="White" />
+        </StackPanel>
+    </Grid>
+
+</Controls:MetroWindow>
